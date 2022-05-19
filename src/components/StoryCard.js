@@ -5,6 +5,8 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
+import './StoryCard.css';
+
 
 import cardImg from '../CardMedia.png';
 
@@ -19,27 +21,12 @@ const theme = createTheme({
       'Plus Jakarta Sans',
       'sans-serif',
     ].join(','),
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          font-family: 'Plus Jakarta Sans';
-          font-style: normal;
-          font-display: swap;
-          font-weight: 400;
-          src: url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&display=swap');
-          unicodeRange: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
-        }
-      `,
-    },
-  },
+  }
 })
 
 const StoryCard = ({ selected, hover }) => {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
       <Card sx={{ maxWidth: 345, boxShadow: hover ? '0px 0px 0px 2px #65e9d9' : 'none', borderRadius: '10px', width: '229px', height: '150px', border: selected && '1px solid #3d8479', fontFamily: 'Plus Jakarta Sans', }}>
         <CardMedia
           component="img"
@@ -47,7 +34,7 @@ const StoryCard = ({ selected, hover }) => {
           image={cardImg}
           alt="card image"
         />
-        <CardContent sx={{ height: '50px', padding: '8px', }}>
+        <CardContent sx={{ height: '50px', padding: '8px 10px', }}>
           <FormGroup>
             <FormControlLabel control={<Checkbox size="small" checked={selected} sx={{
               '&.Mui-checked': {
